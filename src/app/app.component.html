@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <a
+    mat-icon-button
+    aria-label="back"
+    routerLink=".."
+    *ngIf="router.url !== '/products'"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <span class="spacer"></span>
+  <span>ngrx-store-app</span>
+  <span class="spacer"></span>
+  <a mat-icon-button aria-label="create new pizza" routerLink="products/new">
+    <mat-icon>add</mat-icon>
+  </a>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,7 @@
+<div class="pizza-item">
+  <a [routerLink]="['/products', pizza.id]">
+    <pizza-display [pizza]="pizza"> </pizza-display>
+    <h4>{{ pizza.name }}</h4>
+    <button mat-stroked-button color="primary" type="button">View Pizza</button>
+  </a>
+</div>
