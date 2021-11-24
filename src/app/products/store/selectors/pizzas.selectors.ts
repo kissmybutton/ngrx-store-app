@@ -11,9 +11,13 @@ export const getPizzaState = createSelector(
   (state: fromFeature.ProductsState) => state.pizzas
 );
 
+// export const getPizzasEntities = createSelector(
+//   getPizzaState,
+//   fromPizzas.getPizzasEntities
+// );
 export const getPizzasEntities = createSelector(
   getPizzaState,
-  fromPizzas.getPizzasEntities
+  fromPizzas.selectEntities
 );
 
 export const getSelectedPizza = (props: { pizzaId: string }) =>
@@ -32,9 +36,10 @@ export const getPizzaVisualized = (props: { pizzaId: string }) =>
     }
   );
 
-export const getAllPizzas = createSelector(getPizzasEntities, (entities) => {
-  return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
-});
+// export const getAllPizzas = createSelector(getPizzasEntities, (entities) => {
+//   return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
+// });
+export const getAllPizzas = createSelector(getPizzaState, fromPizzas.selectAll);
 
 export const getPizzasLoaded = createSelector(
   getPizzaState,

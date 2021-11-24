@@ -25,10 +25,9 @@ export class PizzasService {
   }
 
   updatePizza(payload: Pizza): Observable<Pizza> {
-    return this.http.put<Pizza>(`/api/pizzas/${payload.id}`, payload).pipe(
-      tap((pizza) => console.log(pizza)),
-      catchError((error: any) => throwError(error.json()))
-    );
+    return this.http
+      .put<Pizza>(`/api/pizzas/${payload.id}`, payload)
+      .pipe(catchError((error: any) => throwError(error.json())));
   }
 
   removePizza(payload: Pizza): Observable<Pizza> {

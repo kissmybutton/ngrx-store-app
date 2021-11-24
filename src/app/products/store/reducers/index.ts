@@ -13,6 +13,15 @@ export const reducers: ActionReducerMap<ProductsState> = {
   toppings: fromToppings.reducer,
 };
 
-export const getProductsState = createFeatureSelector<ProductsState>(
-  'products'
-);
+export const getProductsState =
+  createFeatureSelector<ProductsState>('products');
+
+// State Example
+// {
+//   auth: {},
+//   another-feature: {},
+//   products: {
+//     pizzas: { entities: {}, loaded: false, loading: false}
+//     toppings: { entities: {}, loaded: false, loading: false}
+//   }
+// }
