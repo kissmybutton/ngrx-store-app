@@ -6,7 +6,6 @@ import { Pizza } from '../../models/pizza.model';
 import * as fromReducers from '../reducers/index';
 import * as fromActions from '../actions/index';
 import * as fromSelectors from '../selectors/pizzas.selectors';
-import { provideRoutes, Router } from '@angular/router';
 
 describe('Pizzas Selectors', () => {
   let store: Store<fromReducers.ProductsState>;
@@ -44,7 +43,6 @@ describe('Pizzas Selectors', () => {
   };
 
   const pizzas: Pizza[] = [pizza1, pizza2, pizza3];
-
   const entities = {
     1: pizzas[0],
     2: pizzas[1],
@@ -72,6 +70,7 @@ describe('Pizzas Selectors', () => {
         .subscribe((value) => (result = value));
 
       expect(result).toEqual({
+        ids: [],
         entities: {},
         loaded: false,
         loading: false,
@@ -80,6 +79,7 @@ describe('Pizzas Selectors', () => {
       store.dispatch(fromActions.loadPizzasSuccess({ pizzas }));
 
       expect(result).toEqual({
+        ids: [2, 3, 1],
         entities,
         loaded: true,
         loading: false,
@@ -159,7 +159,7 @@ describe('Pizzas Selectors', () => {
 
       store.dispatch(fromActions.loadPizzasSuccess({ pizzas }));
 
-      expect(result).toEqual(pizzas);
+      expect(result).toEqual([pizza2, pizza3, pizza1]);
     });
   });
 

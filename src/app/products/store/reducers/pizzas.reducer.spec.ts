@@ -144,7 +144,7 @@ describe('PizzasReducer Selectors', () => {
       };
       const { initialState } = fromPizzas;
       const previousState = { ...initialState, entities };
-      const slice = fromPizzas.getPizzasEntities(previousState);
+      const slice = fromPizzas.selectEntities(previousState);
 
       expect(slice).toEqual(entities);
     });
